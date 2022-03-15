@@ -25,6 +25,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     MyTextField(
                       labelText: "Enter Password",
+                      obscuretext: true,
                     ),
                     MyButton(
                       buttonName: "Login",

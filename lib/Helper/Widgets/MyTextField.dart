@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 
 class MyTextField extends StatelessWidget {
   final String? labelText;
-  const MyTextField({
-    Key? key,
-    this.labelText,
-  }) : super(key: key);
+  final bool obscuretext;
+  const MyTextField({Key? key, this.labelText, this.obscuretext = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +14,7 @@ class MyTextField extends StatelessWidget {
           color: Colors.grey.withOpacity(.5),
           borderRadius: BorderRadius.circular(10)),
       child: TextFormField(
+        obscureText: obscuretext,
         decoration: InputDecoration(
             border: InputBorder.none,
             contentPadding: EdgeInsets.all(10),
