@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "462647132562",
+    "project_id": "shehzadecoomrce",
+    "storage_bucket": "shehzadecoomrce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462647132562:android:36137993a66a0b8c6ac14b",
+        "android_client_info": {
+          "package_name": "com.example.shehzad_ecoomrce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462647132562-j2vo9qcomufass8i4auelqigjpi6trq6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChhxOv6lV8gGRz6IuIMIPaKgvefCDpCL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462647132562-j2vo9qcomufass8i4auelqigjpi6trq6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
