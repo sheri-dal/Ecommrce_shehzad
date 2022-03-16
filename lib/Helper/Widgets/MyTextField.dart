@@ -3,7 +3,16 @@ import 'package:flutter/material.dart';
 class MyTextField extends StatelessWidget {
   final String? labelText;
   final bool obscuretext;
-  const MyTextField({Key? key, this.labelText, this.obscuretext = false})
+  final TextEditingController? controller;
+  final FormFieldValidator<String>? validator;
+  final Widget? suffixIcon;
+  const MyTextField(
+      {Key? key,
+      this.labelText,
+      this.obscuretext = false,
+      this.controller,
+      this.suffixIcon,
+      this.validator})
       : super(key: key);
 
   @override
@@ -14,8 +23,11 @@ class MyTextField extends StatelessWidget {
           color: Colors.grey.withOpacity(.5),
           borderRadius: BorderRadius.circular(10)),
       child: TextFormField(
+        controller: controller,
+        validator: validator,
         obscureText: obscuretext,
         decoration: InputDecoration(
+            suffixIcon: suffixIcon,
             border: InputBorder.none,
             contentPadding: EdgeInsets.all(10),
             labelText: labelText),

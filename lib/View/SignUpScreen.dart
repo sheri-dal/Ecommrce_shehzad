@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/state_manager.dart';
 import 'package:shehzad_ecoomrce/Controller/LoginController.dart';
+import 'package:shehzad_ecoomrce/Controller/SignUpController.dart';
+
 import 'package:shehzad_ecoomrce/Helper/Components/PrimaryText.dart';
 import 'package:shehzad_ecoomrce/Helper/Widgets/MyButton.dart';
-import 'package:shehzad_ecoomrce/View/SignUpScreen.dart';
 
 import '../Helper/Widgets/MyTextField.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginController loginController = Get.put(LoginController());
-  LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
   TextEditingController emailController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
+  TextEditingController rePasswordController = new TextEditingController();
+  SignUpController signUpController = Get.put(SignUpController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class LoginScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                PrimaryText(text: "Welcome \n Please SignIn"),
+                PrimaryText(text: "Welcome \n Please Create Your Account!!"),
                 Form(
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,26 +38,39 @@ class LoginScreen extends StatelessWidget {
                       () => MyTextField(
                         suffixIcon: IconButton(
                           onPressed: () {
-                            loginController.ispassword.value =
-                                !loginController.ispassword.value;
+                            signUpController.ispassword.value =
+                                !signUpController.ispassword.value;
                           },
-                          icon: loginController.ispassword.value
+                          icon: signUpController.ispassword.value
                               ? const Icon(Icons.visibility)
                               : const Icon(Icons.visibility_off),
                         ),
                         controller: passwordController,
                         labelText: "Enter Password",
-                        obscuretext: loginController.ispassword.value,
+                        obscuretext: signUpController.ispassword.value,
                       ),
                     ),
-                    MyButton(
-                      buttonName: "Login",
-                      onPressed: () {},
+                    Obx(
+                      () => MyTextField(
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            signUpController.reIspassword.value =
+                                !signUpController.reIspassword.value;
+                          },
+                          icon: signUpController.reIspassword.value
+                              ? const Icon(Icons.visibility)
+                              : const Icon(Icons.visibility_off),
+                        ),
+                        controller: rePasswordController,
+                        labelText: "ReType Password",
+                        obscuretext: signUpController.reIspassword.value,
+                      ),
                     ),
+                    MyButton(buttonName: "SignUp", onPressed: () {}),
                     MyButton(
-                      buttonName: "Create New Account",
+                      buttonName: "Back To Login",
                       onPressed: () {
-                        Get.to(() => SignUpScreen());
+                        Get.back();
                       },
                     ),
                   ],

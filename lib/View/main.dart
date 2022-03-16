@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shehzad_ecoomrce/Helper/Responsive_Work/Responsive.dart';
 import 'package:shehzad_ecoomrce/View/LogInScreen.dart';
+import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyResponsive(builder: (context, orientation, deviceType) {
-      return MaterialApp(
+      return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Zibyan Store',
         theme: ThemeData(
