@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Controller/LoginController.dart';
@@ -23,17 +25,22 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 PrimaryText(text: "Welcome \n Please SignIn"),
+                SizedBox(
+                  height: 50,
+                ),
                 Form(
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     MyTextField(
+                      textInputAction: TextInputAction.next,
                       controller: emailController,
                       labelText: "Enter Email",
                       suffixIcon: Icon(Icons.email),
                     ),
                     Obx(
                       () => MyTextField(
+                        textInputAction: TextInputAction.go,
                         suffixIcon: IconButton(
                           onPressed: () {
                             loginController.ispassword.value =

@@ -6,12 +6,18 @@ class MyTextField extends StatelessWidget {
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
   final Widget? suffixIcon;
+  final FocusNode? focusNode;
+  final TextInputType? textInputType;
+  final TextInputAction? textInputAction;
   const MyTextField(
       {Key? key,
       this.labelText,
       this.obscuretext = false,
       this.controller,
       this.suffixIcon,
+      this.focusNode,
+      this.textInputType,
+      this.textInputAction,
       this.validator})
       : super(key: key);
 
@@ -26,6 +32,9 @@ class MyTextField extends StatelessWidget {
         controller: controller,
         validator: validator,
         obscureText: obscuretext,
+        focusNode: focusNode,
+        keyboardType: textInputType,
+        textInputAction: textInputAction,
         decoration: InputDecoration(
             suffixIcon: suffixIcon,
             border: InputBorder.none,
