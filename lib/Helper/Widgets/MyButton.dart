@@ -6,10 +6,12 @@ class MyButton extends StatelessWidget {
   final String buttonName;
   final Color btnColor;
   final Color btntrxtcolor;
+  final bool isLoading;
   final GestureTapCallback onPressed;
   const MyButton(
       {Key? key,
       required this.buttonName,
+      this.isLoading = false,
       this.btnColor = Colors.black,
       this.btntrxtcolor = Colors.white,
       required this.onPressed})
@@ -27,12 +29,25 @@ class MyButton extends StatelessWidget {
             color: btnColor,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: Colors.amber)),
-        child: Center(
-            child: PrimaryText(
-          text: buttonName,
-          color: btntrxtcolor,
-          size: 16,
-        )),
+        child: Stack(
+          children: [
+            Visibility(
+              visible: isLoading ? false : true,
+              child: Center(
+                  child: PrimaryText(
+                text: buttonName,
+                color: btntrxtcolor,
+                size: 16,
+              )),
+            ),
+            Visibility(
+              visible: isLoading,
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -36,12 +36,12 @@ class SignUpScreen extends StatelessWidget {
                         MyTextField(
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return "req";
+                              return "Email Required";
                             }
                             var email = GeneralMethod.isEmailValid(value);
 
                             if (!email) {
-                              return "Email Not Valid";
+                              return "The Email Is Badly Formatted";
                             }
                             return null;
                           },
@@ -55,10 +55,10 @@ class SignUpScreen extends StatelessWidget {
                               if (value!.isEmpty) {
                                 return "Password Required";
                               }
-                              var pass = GeneralMethod.isPasseord(value);
-                              if (!pass) {
-                                return "Password Not Valid";
-                              }
+                              // var pass = GeneralMethod.isPasseord(value);
+                              // if (!pass) {
+                              //   return "Password Not Valid";
+                              // }
                               return null;
                             },
                             suffixIcon: IconButton(
@@ -80,9 +80,11 @@ class SignUpScreen extends StatelessWidget {
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Password Required";
-                              } else if (value.length < 7) {
-                                return "Password Short";
                               }
+
+                              // else if (value.length < 7) {
+                              //   return "Password Short";
+                              // }
                               return null;
                             },
                             suffixIcon: IconButton(
@@ -100,15 +102,17 @@ class SignUpScreen extends StatelessWidget {
                           ),
                         ),
                         MyButton(
-                            buttonName: "SignUp",
-                            onPressed: () {
-                              if (_formkey.currentState!.validate()) {
-                                signUpController.log(
-                                    emailController.text,
-                                    passwordController.text,
-                                    rePasswordController.text);
-                              }
-                            }),
+                          buttonName: "SignUp",
+                          onPressed: () {
+                            if (_formkey.currentState!.validate()) {
+                              signUpController.log(
+                                  emailController.text,
+                                  passwordController.text,
+                                  rePasswordController.text);
+                            }
+                          },
+                          isLoading: signUpController.isDataLoading.value,
+                        ),
                         MyButton(
                           buttonName: "Back To Login",
                           onPressed: () {

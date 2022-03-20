@@ -55,6 +55,8 @@ class DialogHelper {
   }
 
   static void hideLoading() {
-    if (Get.isDialogOpen!) Get.back();
+    if (Get.isDialogOpen!) {
+      Get.back();
+    }
   }
 }
