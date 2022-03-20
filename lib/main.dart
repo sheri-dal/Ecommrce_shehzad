@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shehzad_ecoomrce/Helper/Responsive_Work/Responsive.dart';
-import 'package:shehzad_ecoomrce/View/LogInScreen.dart';
+import 'package:shehzad_ecoomrce/View/Landing_Screen.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         title: 'Zibyan Store',
         theme: ThemeData(
             primarySwatch: Colors.blue, backgroundColor: Colors.white),
-        home: LoginScreen(),
+        home: LandingScreen(),
       );
     });
   }

@@ -1,15 +1,27 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Controller/BaseController.dart';
 import 'package:shehzad_ecoomrce/Helper/Components/dialog_helper.dart';
 import 'package:shehzad_ecoomrce/View/Dashbord.dart';
 
 class SignUpController extends BaseController {
+  TextEditingController emailController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
+  TextEditingController rePasswordController = new TextEditingController();
   var ispassword = true.obs;
   var reIspassword = true.obs;
   var isDataLoading = false.obs;
 
-  void log(String email, String password, String retypePassword) {
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    rePasswordController.dispose();
+  }
+
+  void SignUp(String email, String password, String retypePassword) {
     DialogHelper.showLoading("Loading");
     if (password != retypePassword) {
       DialogHelper.hideLoading();
@@ -17,7 +29,8 @@ class SignUpController extends BaseController {
           title: "Password", description: "Password Not Match");
     } else {
       createAccount(email, password).then((res) {
-        print("Test");
+        DialogHelper.hideLoading();
+        isDataLoading.value = false;
         if (res == null) {
           Get.to(() => DashbordPage());
         } else {

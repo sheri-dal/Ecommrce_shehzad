@@ -12,8 +12,8 @@ import '../Helper/Widgets/MyTextField.dart';
 class LoginScreen extends StatelessWidget {
   LoginController loginController = Get.put(LoginController());
   LoginScreen({Key? key}) : super(key: key);
-  TextEditingController emailController = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController();
+
+  final _fromkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,44 +29,52 @@ class LoginScreen extends StatelessWidget {
                   height: 50,
                 ),
                 Form(
+                    key: _fromkey,
                     child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MyTextField(
-                      textInputAction: TextInputAction.next,
-                      controller: emailController,
-                      labelText: "Enter Email",
-                      suffixIcon: Icon(Icons.email),
-                    ),
-                    Obx(
-                      () => MyTextField(
-                        textInputAction: TextInputAction.go,
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            loginController.ispassword.value =
-                                !loginController.ispassword.value;
-                          },
-                          icon: loginController.ispassword.value
-                              ? const Icon(Icons.visibility)
-                              : const Icon(Icons.visibility_off),
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        MyTextField(
+                          textInputAction: TextInputAction.next,
+                          controller: loginController.emailController,
+                          labelText: "Enter Email",
+                          suffixIcon: Icon(Icons.email),
                         ),
-                        controller: passwordController,
-                        labelText: "Enter Password",
-                        obscuretext: loginController.ispassword.value,
-                      ),
-                    ),
-                    MyButton(
-                      buttonName: "Login",
-                      onPressed: () {},
-                    ),
-                    MyButton(
-                      buttonName: "Create New Account",
-                      onPressed: () {
-                        Get.to(() => SignUpScreen());
-                      },
-                    ),
-                  ],
-                ))
+                        Obx(
+                          () => MyTextField(
+                            textInputAction: TextInputAction.go,
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                loginController.ispassword.value =
+                                    !loginController.ispassword.value;
+                              },
+                              icon: loginController.ispassword.value
+                                  ? const Icon(Icons.visibility)
+                                  : const Icon(Icons.visibility_off),
+                            ),
+                            controller: loginController.passwordController,
+                            labelText: "Enter Password",
+                            obscuretext: loginController.ispassword.value,
+                          ),
+                        ),
+                        MyButton(
+                          buttonName: "Login",
+                          onPressed: () {
+                            if (_fromkey.currentState!.validate()) {
+                              loginController.logIn(
+                                  loginController.emailController.text,
+                                  loginController.passwordController.text);
+                            }
+                            return null;
+                          },
+                        ),
+                        MyButton(
+                          buttonName: "Create New Account",
+                          onPressed: () {
+                            Get.to(() => SignUpScreen());
+                          },
+                        ),
+                      ],
+                    ))
               ],
             ),
           ),

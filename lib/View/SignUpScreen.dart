@@ -11,9 +11,6 @@ import 'package:shehzad_ecoomrce/Helper/Widgets/MyButton.dart';
 import '../Helper/Widgets/MyTextField.dart';
 
 class SignUpScreen extends StatelessWidget {
-  TextEditingController emailController = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController();
-  TextEditingController rePasswordController = new TextEditingController();
   final _formkey = GlobalKey<FormState>();
   SignUpController signUpController = Get.put(SignUpController());
 
@@ -45,7 +42,7 @@ class SignUpScreen extends StatelessWidget {
                             }
                             return null;
                           },
-                          controller: emailController,
+                          controller: signUpController.emailController,
                           labelText: "Enter Email",
                           suffixIcon: Icon(Icons.email),
                         ),
@@ -70,7 +67,7 @@ class SignUpScreen extends StatelessWidget {
                                   ? const Icon(Icons.visibility)
                                   : const Icon(Icons.visibility_off),
                             ),
-                            controller: passwordController,
+                            controller: signUpController.passwordController,
                             labelText: "Enter Password",
                             obscuretext: signUpController.ispassword.value,
                           ),
@@ -96,7 +93,7 @@ class SignUpScreen extends StatelessWidget {
                                   ? const Icon(Icons.visibility)
                                   : const Icon(Icons.visibility_off),
                             ),
-                            controller: rePasswordController,
+                            controller: signUpController.rePasswordController,
                             labelText: "ReType Password",
                             obscuretext: signUpController.reIspassword.value,
                           ),
@@ -105,10 +102,10 @@ class SignUpScreen extends StatelessWidget {
                           buttonName: "SignUp",
                           onPressed: () {
                             if (_formkey.currentState!.validate()) {
-                              signUpController.log(
-                                  emailController.text,
-                                  passwordController.text,
-                                  rePasswordController.text);
+                              signUpController.SignUp(
+                                  signUpController.emailController.text,
+                                  signUpController.passwordController.text,
+                                  signUpController.rePasswordController.text);
                             }
                           },
                           isLoading: signUpController.isDataLoading.value,
