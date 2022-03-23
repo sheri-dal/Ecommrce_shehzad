@@ -1,8 +1,11 @@
+import 'dart:ffi';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Controller/BaseController.dart';
 import 'package:shehzad_ecoomrce/View/HomeScreen.dart';
+import 'package:shehzad_ecoomrce/View/LogInScreen.dart';
 
 import '../Helper/Components/dialog_helper.dart';
 
@@ -51,8 +54,10 @@ class LoginController extends BaseController {
     }
   }
 
-  // static Future<Void?> signOut() async {
-  //   await FirebaseAuth.instance.signOut();
-  //   return null;
-  // }
+  Future<Void?> signOut() async {
+    await FirebaseAuth.instance.signOut().then((value) {
+      Get.to(() => LoginScreen());
+    });
+    return null;
+  }
 }

@@ -6,11 +6,13 @@ import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Controller/HomeController.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:shehzad_ecoomrce/Controller/LoginController.dart';
 import 'package:shehzad_ecoomrce/Helper/Components/PrimaryText.dart';
 import 'package:shehzad_ecoomrce/Helper/Widgets/HomeCrads.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeController homeController = Get.put(HomeController());
+  LoginController loginController = Get.find();
 
   List categories = [
     "GROCERY",
@@ -21,15 +23,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   actions: [
-      //     IconButton(
-      //         onPressed: () {
-      //           LoginController.signOut();
-      //         },
-      //         icon: Icon(Icons.logout))
-      //   ],
-      // ),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                loginController.signOut();
+              },
+              icon: Icon(Icons.logout))
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
@@ -75,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                                 child: Container(
                                   color: Colors.black.withOpacity(.5),
                                   child: PrimaryText(
-                                    text: "Title: Abc",
+                                    text: "Title",
                                     size: 15,
                                     color: Colors.white,
                                   ),
