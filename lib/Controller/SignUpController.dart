@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Controller/BaseController.dart';
 import 'package:shehzad_ecoomrce/Helper/Components/dialog_helper.dart';
-import 'package:shehzad_ecoomrce/View/Dashbord.dart';
+
+import 'package:shehzad_ecoomrce/View/HomeScreen.dart';
 
 class SignUpController extends BaseController {
   TextEditingController emailController = new TextEditingController();
@@ -32,7 +33,7 @@ class SignUpController extends BaseController {
         DialogHelper.hideLoading();
         isDataLoading.value = false;
         if (res == null) {
-          Get.to(() => DashbordPage());
+          Get.to(() => HomeScreen());
         } else {
           DialogHelper.hideLoading();
           DialogHelper.showErroDialog(

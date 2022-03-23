@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,13 +19,15 @@ class LoginController extends BaseController {
     passwordController.dispose();
   }
 
-  void logIn(String email, String password) {
+  void logIn(
+    String email,
+    String password,
+  ) {
     DialogHelper.showLoading("Loading");
 
     LoginAccount(email, password).then((res) {
       DialogHelper.hideLoading();
       if (res == null) {
-        print(res);
         Get.to(() => HomeScreen());
       } else {
         DialogHelper.hideLoading();
@@ -51,8 +51,8 @@ class LoginController extends BaseController {
     }
   }
 
-  static Future<Void?> signOut() async {
-    await FirebaseAuth.instance.signOut();
-    return null;
-  }
+  // static Future<Void?> signOut() async {
+  //   await FirebaseAuth.instance.signOut();
+  //   return null;
+  // }
 }
