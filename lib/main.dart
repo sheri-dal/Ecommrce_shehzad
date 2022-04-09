@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:shehzad_ecoomrce/Helper/Responsive_Work/Responsive.dart';
 import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Helper/Rotes.dart';
-import 'package:shehzad_ecoomrce/View/layout_Screen.dart';
+import 'package:shehzad_ecoomrce/View/WebAdminPages/WebMainScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,12 +32,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MyResponsive(builder: (context, orientation, deviceType) {
       return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Zibyan Store',
-          theme: ThemeData(
-              primarySwatch: Colors.blue, backgroundColor: Colors.white),
-          home: LayoutScreen(),
-          routes: MyRoute.routes);
+        debugShowCheckedModeBanner: false,
+        title: 'Zibyan Store',
+        theme: ThemeData(
+            primarySwatch: Colors.blue, backgroundColor: Colors.white),
+        // home: LayoutScreen(),
+        home: WebMainScreen(),
+        routes: MyRoute.routes,
+        //  getPages: MyRoute.routes,
+      );
     });
   }
 }

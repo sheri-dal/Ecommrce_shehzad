@@ -6,6 +6,7 @@ class MyButton extends StatelessWidget {
   final String buttonName;
   final Color btnColor;
   final Color btntrxtcolor;
+  final Color btnBordercolor;
   final bool isLoading;
   final GestureTapCallback onPressed;
   const MyButton(
@@ -14,6 +15,7 @@ class MyButton extends StatelessWidget {
       this.isLoading = false,
       this.btnColor = Colors.black,
       this.btntrxtcolor = Colors.white,
+      this.btnBordercolor = Colors.white,
       required this.onPressed})
       : super(key: key);
 
@@ -28,7 +30,7 @@ class MyButton extends StatelessWidget {
         decoration: BoxDecoration(
             color: btnColor,
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.amber)),
+            border: Border.all(color: btnBordercolor)),
         child: Stack(
           children: [
             Visibility(

@@ -9,7 +9,7 @@ import 'package:shehzad_ecoomrce/Helper/Widgets/MyButton.dart';
 import 'package:shehzad_ecoomrce/Helper/Widgets/MyTextField.dart';
 
 class WebloginScreen extends StatelessWidget {
-  static const id = "Weblogin";
+  static const id = "/Weblogin";
   var webLoginController = Get.put(WebLoginController());
   final _fromkey = GlobalKey<FormState>();
   @override

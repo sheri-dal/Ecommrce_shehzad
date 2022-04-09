@@ -7,6 +7,7 @@ import 'package:shehzad_ecoomrce/Helper/Components/PrimaryText.dart';
 import 'package:shehzad_ecoomrce/View/HomeScreen.dart';
 import 'package:shehzad_ecoomrce/View/LogInScreen.dart';
 
+//Splash
 class LandingScreen extends StatelessWidget {
   Future<FirebaseApp> initiliza = Firebase.initializeApp();
   @override

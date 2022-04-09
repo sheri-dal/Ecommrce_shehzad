@@ -10,16 +10,17 @@ import 'package:shehzad_ecoomrce/Controller/LoginController.dart';
 import 'package:shehzad_ecoomrce/Helper/Components/PrimaryText.dart';
 import 'package:shehzad_ecoomrce/Helper/Widgets/HomeCrads.dart';
 
+List categories = [
+  "GROCERY",
+  "PHARMACY",
+  "COSMETICS",
+  "ELECTRONICS",
+];
+
 class HomeScreen extends StatelessWidget {
   HomeController homeController = Get.put(HomeController());
   LoginController loginController = Get.find();
 
-  List categories = [
-    "GROCERY",
-    "PHARMACY",
-    "COSMETICS",
-    "ELECTRONICS",
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

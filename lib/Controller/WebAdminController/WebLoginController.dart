@@ -5,35 +5,43 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Controller/BaseController.dart';
 import 'package:shehzad_ecoomrce/Helper/Components/dialog_helper.dart';
-import 'package:shehzad_ecoomrce/View/WebAdminPages/WebDashboard.dart';
+import 'package:shehzad_ecoomrce/View/WebAdminPages/WebMainScreen.dart';
 
 class WebLoginController extends BaseController {
   TextEditingController userController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
   var isloading = false.obs;
 
-  void login(String Username, String Password) {
-    adminSignIn(Username).then((value) async {
+  Future<void> login(String Username, String Password) async {
+    await adminSignIn(Username).then((value) async {
+      // ignore: unnecessary_null_comparison
+
       if (value["Username"] == Username && value["Password"] == Password) {
         try {
-          var user = await FirebaseAuth.instance.signInAnonymously();
-
+          UserCredential user = await FirebaseAuth.instance.signInAnonymously();
+          // ignore: unnecessary_null_comparison
           if (user != null) {
-            Get.to(() => WebDashbord());
+            Get.to(() => WebMainScreen());
+            isloading.value = false;
+            //  Get.toNamed(WebDashbord.id);
+          } else {
+            DialogHelper.showErroDialog(
+                title: "Login Failed !!", description: value);
+
+            isloading.value = false;
           }
-        } on FirebaseAuthException catch (ex) {
-          isloading.value = false;
+        } catch (e) {
           DialogHelper.showErroDialog(
-              title: "Login Failed !!", description: ex.message);
+              title: "Login Failed !!", description: e.toString());
+
+          isloading.value = false;
         }
       }
     });
   }
 
   Future<dynamic> adminSignIn(id) async {
-    var result =
-        await FirebaseFirestore.instance.collection("Admin").doc(id).get();
-
+    var result = FirebaseFirestore.instance.collection("Admin").doc(id).get();
     return result;
   }
 }

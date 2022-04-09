@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -54,9 +52,11 @@ class LoginController extends BaseController {
     }
   }
 
-  Future<Void?> signOut() async {
+  Future<String?> signOut() async {
     await FirebaseAuth.instance.signOut().then((value) {
       Get.to(() => LoginScreen());
+      emailController.text = "";
+      passwordController.clear();
     });
     return null;
   }
