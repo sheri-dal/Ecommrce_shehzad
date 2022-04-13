@@ -53,10 +53,11 @@ class WebloginScreen extends StatelessWidget {
                         return null;
                       }),
                   Obx(() => MyButton(
+                        btnBordercolor: Colors.black,
                         buttonName: "buttonName",
                         onPressed: () {
                           if (_fromkey.currentState!.validate()) {
-                            webLoginController.isloading.value = true;
+                            // webLoginController.isloading.value = true;
 
                             webLoginController.login(
                                 webLoginController.userController.text,

@@ -13,35 +13,37 @@ class WebLoginController extends BaseController {
   var isloading = false.obs;
 
   Future<void> login(String Username, String Password) async {
+    isloading.value = true;
     await adminSignIn(Username).then((value) async {
-      // ignore: unnecessary_null_comparison
-
+      if (value != "_JsonDocumentSnapshot") {
+        DialogHelper.showErroDialog(
+            title: "Login Failed !!", description: "LoginFalied");
+        isloading.value = false;
+      }
       if (value["Username"] == Username && value["Password"] == Password) {
+        DialogHelper.hideLoading();
         try {
           UserCredential user = await FirebaseAuth.instance.signInAnonymously();
+
           // ignore: unnecessary_null_comparison
           if (user != null) {
+            print("test");
             Get.to(() => WebMainScreen());
             isloading.value = false;
             //  Get.toNamed(WebDashbord.id);
-          } else {
-            DialogHelper.showErroDialog(
-                title: "Login Failed !!", description: value);
-
-            isloading.value = false;
           }
         } catch (e) {
           DialogHelper.showErroDialog(
               title: "Login Failed !!", description: e.toString());
-
           isloading.value = false;
         }
       }
     });
   }
 
-  Future<dynamic> adminSignIn(id) async {
+  Future<DocumentSnapshot> adminSignIn(id) async {
     var result = FirebaseFirestore.instance.collection("Admin").doc(id).get();
+
     return result;
   }
 }

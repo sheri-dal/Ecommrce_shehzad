@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:shehzad_ecoomrce/Helper/Components/PrimaryText.dart';
+import 'package:shehzad_ecoomrce/Helper/Widgets/Loader.dart';
 
 class MyButton extends StatelessWidget {
   final String buttonName;
@@ -45,7 +46,7 @@ class MyButton extends StatelessWidget {
             Visibility(
               visible: isLoading,
               child: Center(
-                child: CircularProgressIndicator(),
+                child: Loader(),
               ),
             )
           ],

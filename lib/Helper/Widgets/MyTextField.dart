@@ -9,6 +9,7 @@ class MyTextField extends StatelessWidget {
   final FocusNode? focusNode;
   final TextInputType? textInputType;
   final TextInputAction? textInputAction;
+  final int maxLines;
   const MyTextField(
       {Key? key,
       this.labelText,
@@ -18,6 +19,7 @@ class MyTextField extends StatelessWidget {
       this.focusNode,
       this.textInputType,
       this.textInputAction,
+      this.maxLines = 1,
       this.validator})
       : super(key: key);
 
@@ -29,6 +31,7 @@ class MyTextField extends StatelessWidget {
           color: Colors.grey.withOpacity(.5),
           borderRadius: BorderRadius.circular(10)),
       child: TextFormField(
+        maxLines: maxLines,
         controller: controller,
         validator: validator,
         obscureText: obscuretext,

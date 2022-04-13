@@ -67,8 +67,7 @@ class WebAddProductScreen extends StatelessWidget {
                 btntrxtcolor: Colors.black,
                 btnBordercolor: Colors.black,
                 onPressed: () {
-                  addProductController
-                      .postImages(addProductController.images[0]);
+                  addProductController.UploadImages();
                 },
               ),
               SizedBox(
