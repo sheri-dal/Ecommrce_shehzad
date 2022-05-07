@@ -61,15 +61,6 @@ class WebAddProductScreen extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              MyButton(
-                buttonName: "UPLOAD IMAGES",
-                btnColor: Colors.white,
-                btntrxtcolor: Colors.black,
-                btnBordercolor: Colors.black,
-                onPressed: () {
-                  addProductController.UploadImages();
-                },
-              ),
               SizedBox(
                 height: 10,
               ),
@@ -79,7 +70,8 @@ class WebAddProductScreen extends StatelessWidget {
                   color: Colors.grey.withOpacity(.3),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Obx(() => GridView.builder(
+                child: Obx(
+                  () => GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                     ),
@@ -107,8 +99,20 @@ class WebAddProductScreen extends StatelessWidget {
                           ],
                         ),
                       );
-                    })),
-              )
+                    },
+                  ),
+                ),
+              ),
+              Obx(() => MyButton(
+                    buttonName: "Save",
+                    onPressed: () {
+                      addProductController.save();
+                    },
+                    isLoading: addProductController.issaving.value,
+                    btnColor: Colors.white,
+                    btntrxtcolor: Colors.black,
+                    btnBordercolor: Colors.black,
+                  ))
             ],
           ),
         ),

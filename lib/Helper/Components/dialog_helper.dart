@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shehzad_ecoomrce/Helper/Components/PrimaryText.dart';
+import 'package:shehzad_ecoomrce/Helper/Widgets/Loader.dart';
+import 'package:shehzad_ecoomrce/Helper/Widgets/MyButton.dart';
 
 class DialogHelper {
   //show error dialog
@@ -12,23 +15,20 @@ class DialogHelper {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                title,
-                style: Get.textTheme.headline4,
-              ),
-              Text(
-                description ?? '',
-                style: Get.textTheme.headline6,
+              PrimaryText(text: title),
+              PrimaryText(
+                text: description ?? "",
+                size: 15,
               ),
               SizedBox(
                 height: 15,
               ),
-              ElevatedButton(
+              MyButton(
+                buttonName: "Okay",
                 onPressed: () {
                   if (Get.isDialogOpen!) Get.back();
                 },
-                child: Text('Okay'),
-              ),
+              )
             ],
           ),
         ),
@@ -44,7 +44,7 @@ class DialogHelper {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CircularProgressIndicator(),
+              Loader(),
               SizedBox(height: 8),
               Text(message ?? 'Loading...'),
             ],
