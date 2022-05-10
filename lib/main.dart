@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Helper/Rotes.dart';
 import 'package:shehzad_ecoomrce/View/WebAdminPages/WebMainScreen.dart';
 
+import 'View/layout_Screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
@@ -36,8 +38,8 @@ class MyApp extends StatelessWidget {
         title: 'Zibyan Store',
         theme: ThemeData(
             primarySwatch: Colors.blue, backgroundColor: Colors.white),
-        // home: LayoutScreen(),
-        home: WebMainScreen(),
+         home: LayoutScreen(),
+        //home: WebMainScreen(),
         routes: MyRoute.routes,
         //  getPages: MyRoute.routes,
       );
