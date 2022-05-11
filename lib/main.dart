@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         title: 'Zibyan Store',
         theme: ThemeData(
             primarySwatch: Colors.blue, backgroundColor: Colors.white),
-         home: LayoutScreen(),
+        home: LayoutScreen(),
         //home: WebMainScreen(),
         routes: MyRoute.routes,
         //  getPages: MyRoute.routes,
@@ -46,4 +46,4 @@ class MyApp extends StatelessWidget {
     });
   }
 }
-//bhbhbhbjhbjjbh
+//134456487
