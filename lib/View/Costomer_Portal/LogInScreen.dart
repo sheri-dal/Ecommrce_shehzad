@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shehzad_ecoomrce/Controller/LoginController.dart';
 import 'package:shehzad_ecoomrce/Helper/Components/PrimaryText.dart';
 import 'package:shehzad_ecoomrce/Helper/Widgets/MyButton.dart';
-import 'package:shehzad_ecoomrce/View/SignUpScreen.dart';
+import 'package:shehzad_ecoomrce/View/Costomer_Portal/SignUpScreen.dart';
 
-import '../Helper/Widgets/MyTextField.dart';
+import '../../Controller/CustomerPortal/LoginController.dart';
+import '../../Helper/Widgets/MyTextField.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginController loginController = Get.put(LoginController());

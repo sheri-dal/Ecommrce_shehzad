@@ -3,12 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:shehzad_ecoomrce/Controller/HomeController.dart';
-
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:shehzad_ecoomrce/Controller/LoginController.dart';
 import 'package:shehzad_ecoomrce/Helper/Components/PrimaryText.dart';
 import 'package:shehzad_ecoomrce/Helper/Widgets/HomeCrads.dart';
+
+import '../../Controller/CustomerPortal/HomeController.dart';
+import '../../Controller/CustomerPortal/LoginController.dart';
 
 List categories = [
   "GROCERY",

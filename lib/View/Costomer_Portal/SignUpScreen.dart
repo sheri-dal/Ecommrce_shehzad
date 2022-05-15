@@ -2,13 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shehzad_ecoomrce/Controller/CustomerPortal/SignUpController.dart';
 import 'package:shehzad_ecoomrce/Controller/GeneralController.dart';
-import 'package:shehzad_ecoomrce/Controller/SignUpController.dart';
 
 import 'package:shehzad_ecoomrce/Helper/Components/PrimaryText.dart';
 import 'package:shehzad_ecoomrce/Helper/Widgets/MyButton.dart';
 
-import '../Helper/Widgets/MyTextField.dart';
+import '../../Helper/Widgets/MyTextField.dart';
 
 class SignUpScreen extends StatelessWidget {
   final _formkey = GlobalKey<FormState>();

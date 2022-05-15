@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Helper/Rotes.dart';
 import 'package:shehzad_ecoomrce/View/WebAdminPages/WebMainScreen.dart';
 
-import 'View/layout_Screen.dart';
+import 'View/Costomer_Portal/layout_Screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,6 +46,3 @@ class MyApp extends StatelessWidget {
     });
   }
 }
-//134456487
-//12313121212312313222322112
-////////////////////

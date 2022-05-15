@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shehzad_ecoomrce/View/WebAdminPages/webLogin.dart';
-import 'package:shehzad_ecoomrce/View/Landing_Screen.dart';
+
+import 'Landing_Screen.dart';
 
 class LayoutScreen extends StatelessWidget {
   static const id = "Layout";

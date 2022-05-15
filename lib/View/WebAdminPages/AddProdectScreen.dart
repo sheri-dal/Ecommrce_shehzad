@@ -7,9 +7,8 @@ import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Helper/Components/PrimaryText.dart';
 import 'package:shehzad_ecoomrce/Helper/Responsive_Work/sizeConfig.dart';
 import 'package:shehzad_ecoomrce/Helper/Widgets/MyButton.dart';
-import 'package:shehzad_ecoomrce/View/HomeScreen.dart';
 import '../../Controller/WebAdminController/WebAddProductController.dart';
-import '../HomeScreen.dart';
+import '../Costomer_Portal/HomeScreen.dart';
 
 class WebAddProductScreen extends StatelessWidget {
   static const id = "/WebAddProductScreen";

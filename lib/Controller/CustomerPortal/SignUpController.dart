@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Controller/BaseController.dart';
 import 'package:shehzad_ecoomrce/Helper/Components/dialog_helper.dart';
 
-import 'package:shehzad_ecoomrce/View/HomeScreen.dart';
+import '../../View/Costomer_Portal/HomeScreen.dart';
 
 class SignUpController extends BaseController {
   TextEditingController emailController = new TextEditingController();

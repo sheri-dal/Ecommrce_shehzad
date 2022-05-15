@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shehzad_ecoomrce/Controller/BaseController.dart';
-import 'package:shehzad_ecoomrce/View/HomeScreen.dart';
-import 'package:shehzad_ecoomrce/View/LogInScreen.dart';
+import 'package:shehzad_ecoomrce/Helper/Components/dialog_helper.dart';
+import 'package:shehzad_ecoomrce/View/Costomer_Portal/LogInScreen.dart';
 
-import '../Helper/Components/dialog_helper.dart';
+import '../../View/Costomer_Portal/HomeScreen.dart';
 
 class LoginController extends BaseController {
   TextEditingController emailController = new TextEditingController();
